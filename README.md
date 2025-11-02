@@ -159,21 +159,32 @@ I suppose the vps `ip address` is `5.182.18.65` and `domain name` is `nextjs-eco
     sudo nano /etc/apache2/sites-available/nextjs-ecommerce.com.conf
     ```
 
-    ```txt
-    <VirtualHost *:80>
-         ServerName nextjs-ecommerce.com
-         ServerAlias www.nextjs-ecommerce.com
+    ```txt# ----------------------------
+# Redirect HTTP → HTTPS
+# ----------------------------
+<VirtualHost *:80>
+    ServerName admin.cartex.pk
+    Redirect permanent / https://admin.cartex.pk/
+</VirtualHost>
 
-         ProxyRequests Off
-         ProxyPreserveHost On
-         ProxyVia Full
+# ----------------------------
+# HTTPS config (port 443)
+# ----------------------------
+<VirtualHost *:443>
+    ServerName admin.cartex.pk
 
-         <Proxy *>
-             Require all granted
-         </Proxy>
-         ProxyPass / http://127.0.0.1:3000/
-         ProxyPassReverse / http://127.0.0.1:3000/
-    </VirtualHost>
+    SSLEngine on
+    SSLCertificateFile /etc/letsencrypt/live/cartex.pk/fullchain.pem
+    SSLCertificateKeyFile /etc/letsencrypt/live/cartex.pk/privkey.pem
+
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:3001/
+    ProxyPassReverse / http://127.0.0.1:3001/
+
+    ErrorLog /var/log/apache2/admin.cartex.pk-error.log
+    CustomLog /var/log/apache2/admin.cartex.pk-access.log combined
+</VirtualHost>
+
     ```
 
     ```shell
