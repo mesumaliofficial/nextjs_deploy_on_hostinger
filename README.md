@@ -179,7 +179,6 @@ I suppose the vps `ip address` is `5.182.18.65` and `domain name` is `nextjs-eco
     ErrorLog /var/log/apache2/admin.cartex.pk-error.log
     CustomLog /var/log/apache2/admin.cartex.pk-access.log combined
 </VirtualHost>
-
     ```
 
     ```shell
