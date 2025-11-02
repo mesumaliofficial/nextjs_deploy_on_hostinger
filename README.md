@@ -159,7 +159,7 @@ I suppose the vps `ip address` is `5.182.18.65` and `domain name` is `nextjs-eco
     sudo nano /etc/apache2/sites-available/nextjs-ecommerce.com.conf
     ```
 
-    ```txt
+```txt
 <VirtualHost *:80>
     ServerName admin.cartex.pk
     Redirect permanent / https://admin.cartex.pk/
@@ -179,7 +179,7 @@ I suppose the vps `ip address` is `5.182.18.65` and `domain name` is `nextjs-eco
     ErrorLog /var/log/apache2/admin.cartex.pk-error.log
     CustomLog /var/log/apache2/admin.cartex.pk-access.log combined
 </VirtualHost>
-    ```
+```
 
     ```shell
     sudo a2dissite 000-default.conf
