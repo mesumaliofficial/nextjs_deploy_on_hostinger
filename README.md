@@ -159,17 +159,12 @@ I suppose the vps `ip address` is `5.182.18.65` and `domain name` is `nextjs-eco
     sudo nano /etc/apache2/sites-available/nextjs-ecommerce.com.conf
     ```
 
-    ```txt# ----------------------------
-# Redirect HTTP → HTTPS
-# ----------------------------
+    ```txt
 <VirtualHost *:80>
     ServerName admin.cartex.pk
     Redirect permanent / https://admin.cartex.pk/
 </VirtualHost>
 
-# ----------------------------
-# HTTPS config (port 443)
-# ----------------------------
 <VirtualHost *:443>
     ServerName admin.cartex.pk
 
