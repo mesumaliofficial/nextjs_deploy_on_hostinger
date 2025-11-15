@@ -191,6 +191,3 @@ Now your **Next.js project database** is:
 - Backed up daily at 3 AM  
 - Old local backups deleted automatically  
 - Latest backup pushed to GitHub securely using a fine-grained token  
-
-You can **share this Markdown publicly** for others to replicate easily.
-
